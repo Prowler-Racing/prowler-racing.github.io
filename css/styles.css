@@ -356,3 +356,4 @@ strong{font-weight:600;color:inherit}
 .contact__links a{color:inherit;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .ph img.img--contain{object-fit:contain;background:#fff}
 .credit{position:absolute;right:14px;bottom:12px;z-index:2;padding:4px 10px;border-radius:99px;background:rgba(0,0,0,.6);color:#fff;font-size:.78rem;letter-spacing:.04em}
+.ph img.img--logo{background:#202020}
