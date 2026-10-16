@@ -357,3 +357,5 @@ strong{font-weight:600;color:inherit}
 .ph img.img--contain{object-fit:contain;background:#fff}
 .credit{position:absolute;right:14px;bottom:12px;z-index:2;padding:4px 10px;border-radius:99px;background:rgba(0,0,0,.6);color:#fff;font-size:.78rem;letter-spacing:.04em}
 .ph img.img--logo{background:#202020}
+.team__photo{margin:0 0 clamp(32px,5vw,56px);border:3px solid var(--ink);border-radius:28px;overflow:hidden;box-shadow:8px 8px 0 var(--orange);background:#e9e6e1}
+.team__photo img{display:block;width:100%;height:auto}
