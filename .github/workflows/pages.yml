@@ -6,6 +6,8 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [sanity-publish]
+  schedule:
+    - cron: '*/15 * * * *'   # picks up Sanity publishes without needing a webhook token
 
 permissions:
   contents: read
