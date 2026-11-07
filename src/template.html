@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{site.title}}</title>
+<meta name="description" content="{{site.metaDescription}}">
+<meta name="theme-color" content="#FFF8EE">
+<meta property="og:title" content="{{site.title}}">
+<meta property="og:description" content="{{site.ogDescription}}">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">{{@jsonld}}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="logo" viewBox="0 0 64 64"><path d="M14 50V14h20c9 0 14 4 14 11s-5 11-14 11H24" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/><path d="M40 44l10 6M44 36l9 4" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5V17M8 7.5v.01M12 17v-6.5M12 13c0-1.7 1-2.7 2.6-2.7S17 11.3 17 13v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 3v11.2a3.7 3.7 0 1 1-3.7-3.7M14 3c.3 2.4 1.9 4 4.5 4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-cam" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <nav class="nav__side nav__side--l" aria-label="Primary">
+      <ul id="menu" class="nav__links">
+        <li><a href="#home">{{nav.home}}</a></li>
+        <li><a href="#story">{{nav.story}}</a></li>
+        <li><a href="#outreach">{{nav.outreach}}</a></li>
+        <li class="nav__logo-li"><a class="brand" href="#home" aria-label="{{site.name}} home"><svg class="brand__mark" aria-hidden="true"><use href="#logo"/></svg><span class="brand__name">{{site.name}}</span></a></li>
+        <li><a href="#team">{{nav.team}}</a></li>
+        <li><a href="#socials">{{nav.socials}}</a></li>
+        <li><a href="#contact">{{nav.contact}}</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="home" aria-labelledby="hero-title">
+  <figure class="hero__img"><div class="ph ph--dark">{{@hero.image}}</div></figure>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="wrap hero__content">
+    <p class="kicker">{{hero.kicker}}</p>
+    <h1 class="hero__title" id="hero-title">{{hero.titleLine1}}<br>{{hero.titleLine2}}</h1>
+    <div class="hero__foot">
+      <p class="hero__tag">{{hero.tagline}}</p>
+      <div class="hero__cta">
+        <a class="btn btn--dark" href="#team">{{hero.primaryCta}}</a>
+        <a class="btn" href="#story">{{hero.secondaryCta}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero__rule" aria-hidden="true"><i></i><i></i></div>
+</section>
+
+<section class="section story" id="story" aria-labelledby="story-title">
+  <div class="wrap split">
+    <div class="split__text">
+      <p class="kicker">{{story.kicker}}</p>
+      <h2 id="story-title" class="h2">{{story.heading}}</h2>
+      {{@story.body}}
+    </div>
+    <div class="split__media">
+      <figure class="media media--tall"><div class="ph">{{@story.image}}</div></figure>
+    </div>
+  </div>
+</section>
+
+<section class="tiger" id="tiger" aria-labelledby="tiger-title">
+  <figure class="tiger__img"><div class="ph ph--dark">{{@tiger.image}}</div>{{@tiger.credit}}</figure>
+  <div class="wrap tiger__inner">
+    <div class="tiger__text">
+      <p class="kicker">{{tiger.kicker}}</p>
+      <h2 id="tiger-title" class="h2">{{tiger.heading}}</h2>
+      {{@tiger.body}}
+    </div>
+  </div>
+</section>
+
+<section class="section outreach" id="outreach" aria-labelledby="outreach-title">
+  <div class="wrap">
+    <h2 id="outreach-title" class="h2">{{outreach.heading}}</h2>
+    <div class="events">
+{{@events}}
+{{@upcoming}}
+    </div>
+  </div>
+</section>
+
+<section class="section socials" id="socials" aria-labelledby="socials-title">
+  <div class="wrap">
+    <h2 id="socials-title" class="h2">{{socials.heading}}</h2>
+    <p class="muted">{{socials.intro}}</p>
+    <ul class="social-row">{{@socials.links}}</ul>
+  </div>
+</section>
+
+<section class="section team" id="team" aria-labelledby="team-title">
+  <div class="wrap">
+    <header class="section__head">
+      <h2 id="team-title" class="h2">{{team.heading}}</h2>
+    </header>
+    {{@team.photo}}
+    <ul class="roster">
+{{@roster}}
+    </ul>
+  </div>
+</section>
+
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <h2 id="contact-title" class="h2">{{contact.heading}}</h2>
+    <p class="lead">{{contact.intro}}</p>
+    {{@contact.links}}
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <a class="brand" href="#home" aria-label="Back to top"><svg class="brand__mark" aria-hidden="true"><use href="#logo"/></svg><span class="brand__name">{{site.name}}</span></a>
+    <p>© <span id="year">{{year}}</span> {{footer.text}}</p>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

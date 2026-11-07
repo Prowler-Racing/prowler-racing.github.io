@@ -27,13 +27,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Pull content from Sanity
-        run: node scripts/build.mjs index.html
-      - name: Assemble site
-        run: |
-          mkdir _site
-          cp -r index.html css js assets _site/
-          touch _site/.nojekyll
+      - name: Build site from Sanity content
+        run: node scripts/build.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
