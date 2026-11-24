@@ -32,9 +32,8 @@ jobs:
       - name: Build site from Sanity content
         run: node scripts/build.mjs
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-pages-artifact@v4
         with:
-          name: github-pages
           path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
