@@ -124,6 +124,8 @@ function render(tpl, data) {
     .replace(/\{\{([\w.]+)\}\}/g, (_, k) => {
       if (k === 'year') return String(new Date().getFullYear())
       const v = get(k)
+      if (k === 'nav.sponsors' && (v == null || v === '')) return 'Sponsors' // default for optional sponsors nav
+      if (k === 'sponsors.heading' && (v == null || v === '')) return 'Our Sponsors' // default for sponsors heading
       if (v == null || v === '') throw new Error(`Missing content for "${k}" in Site Content`)
       return esc(v)
     })

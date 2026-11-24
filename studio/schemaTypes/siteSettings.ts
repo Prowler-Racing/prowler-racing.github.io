@@ -32,7 +32,7 @@ export const siteSettings = defineType({
       defineField({name: 'metaDescription', type: 'text', rows: 3, title: 'Search description'}),
       defineField({name: 'ogDescription', type: 'text', rows: 2, title: 'Link-preview description'}),
     ]),
-    group('nav', 'Navigation labels', [str('home'), str('story'), str('outreach'), str('team'), str('socials'), str('contact')]),
+    group('nav', 'Navigation labels', [str('home'), str('story'), str('outreach'), str('team'), str('socials'), str('sponsors', 'Sponsors', false), str('contact')]),
     group('hero', 'Hero', [
       image('image', 'Background photo (full-bleed, ~2400px wide)'),
       str('kicker'),
