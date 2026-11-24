@@ -41,6 +41,7 @@
         <li class="nav__logo-li"><a class="brand" href="#home" aria-label="{{site.name}} home"><svg class="brand__mark" aria-hidden="true"><use href="#logo"/></svg><span class="brand__name">{{site.name}}</span></a></li>
         <li><a href="#team">{{nav.team}}</a></li>
         <li><a href="#socials">{{nav.socials}}</a></li>
+        <li><a href="#sponsors">{{nav.sponsors}}</a></li>
         <li><a href="#contact">{{nav.contact}}</a></li>
       </ul>
     </nav>
@@ -118,6 +119,15 @@
     <ul class="roster">
 {{@roster}}
     </ul>
+  </div>
+</section>
+
+<section class="section sponsors" id="sponsors" aria-labelledby="sponsors-title">
+  <div class="wrap">
+    <h2 id="sponsors-title" class="h2">{{sponsors.heading}}</h2>
+    <div class="sponsors__grid">
+{{@sponsors}}
+    </div>
   </div>
 </section>
 

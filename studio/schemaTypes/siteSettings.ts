@@ -62,6 +62,7 @@ export const siteSettings = defineType({
       }),
     ]),
     group('team', 'Team section', [str('heading'), image('groupPhoto', 'Group photo')]),
+    group('sponsors', 'Sponsors section', [str('heading')]),
     group('contact', 'Contact', [
       str('heading'),
       defineField({name: 'intro', type: 'text', rows: 2}),

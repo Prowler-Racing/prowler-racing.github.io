@@ -18,7 +18,7 @@
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
   // gentle fade-in for blocks
-  const els = $$('.split__text,.split__media,.tiger__text,.event,.card,.social-row,.section__head,.contact .wrap');
+  const els = $$('.split__text,.split__media,.tiger__text,.event,.card,.social-row,.sponsors__grid,.section__head,.contact .wrap');
   els.forEach(e => e.classList.add('fade'));
   if ('IntersectionObserver' in window && !reduce) {
     const io = new IntersectionObserver(en => en.forEach(x => { if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } }), { threshold: .12 });
@@ -27,7 +27,7 @@
 
   // active link
   const links = $$('.nav__links a:not(.brand)');
-  const map = { home: 'home', story: 'story', tiger: 'story', outreach: 'outreach', socials: 'socials', team: 'team', contact: 'contact' };
+  const map = { home: 'home', story: 'story', tiger: 'story', outreach: 'outreach', socials: 'socials', team: 'team', sponsors: 'sponsors', contact: 'contact' };
   const spy = new IntersectionObserver(en => en.forEach(x => {
     if (x.isIntersecting) links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + map[x.target.id]));
   }), { rootMargin: '-45% 0px -50% 0px' });

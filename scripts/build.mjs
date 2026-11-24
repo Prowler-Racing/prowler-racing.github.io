@@ -23,11 +23,12 @@ const SETTINGS = `*[_id=="siteSettings"][0]{
   story{..., image${IMG}},
   tiger{..., image${IMG}},
   outreach{..., upcomingImage${IMG}},
-  socials, contact, footer,
+  socials, sponsors, contact, footer,
   team{..., groupPhoto${IMG}}
 }`
 const TEAM = `*[_type=="teamMember"]|order(order asc){name,role,description,portrait${IMG}}`
 const EVENTS = `*[_type=="outreachEvent"]|order(date desc){title,date,description,photo${IMG}}`
+const SPONSORS = `*[_type=="sponsor"]|order(order asc){name,url,tier,logo${IMG}}`
 
 // ---- renderers ----
 const img = (i, {w = 1200, cls = '', lazy = true, fallbackAlt = ''} = {}) => {
@@ -103,6 +104,10 @@ function render(tpl, data) {
           <p>${inline(p.description)}</p>
         </div>
       </article></li>`).join('\n'),
+    sponsors: () =>
+      data.sponsors.map((s) => `      <a class="sponsor" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.name)}">
+        ${img(s.logo, {w: 400, cls: 'sponsor__logo', fallbackAlt: s.name})}
+      </a>`).join('\n'),
     'contact.links': () => {
       const c = get('contact') || {}
       const lines = []
@@ -124,12 +129,12 @@ function render(tpl, data) {
     })
 }
 
-const [settings, team, events] = await Promise.all([query(SETTINGS), query(TEAM), query(EVENTS)])
+const [settings, team, events, sponsors] = await Promise.all([query(SETTINGS), query(TEAM), query(EVENTS), query(SPONSORS)])
 if (!settings) throw new Error('No siteSettings document found in Sanity (is it published?)')
 
 rmSync(OUT, {recursive: true, force: true})
 mkdirSync(OUT)
 for (const d of ['css', 'js', 'assets']) cpSync(d, `${OUT}/${d}`, {recursive: true})
-writeFileSync(`${OUT}/index.html`, render(readFileSync('src/template.html', 'utf8'), {settings, team, events}))
+writeFileSync(`${OUT}/index.html`, render(readFileSync('src/template.html', 'utf8'), {settings, team, events, sponsors}))
 writeFileSync(`${OUT}/.nojekyll`, '')
-console.log(`Built ${OUT}/ — ${team.length} team members, ${events.length} events`)
+console.log(`Built ${OUT}/ — ${team.length} team members, ${events.length} events, ${sponsors.length} sponsors`)

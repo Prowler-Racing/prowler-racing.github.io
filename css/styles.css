@@ -229,6 +229,22 @@ strong{font-weight:600;color:inherit}
 .card__role{color:var(--purple)}
 .card__name{font-size:1.9rem}
 
+/* sponsors */
+.sponsors{background:var(--soft);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.sponsors__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(clamp(140px,20vw,240px),1fr));gap:clamp(16px,3vw,32px);place-items:center;margin-top:clamp(28px,4vw,48px)}
+.sponsor{display:flex;align-items:center;justify-content:center;padding:clamp(16px,2vw,24px);background:#fff;border:2px solid var(--ink);border-radius:16px;transition:transform .25s,box-shadow .25s;box-shadow:4px 4px 0 var(--ink);aspect-ratio:1;min-height:140px}
+.sponsor:hover{transform:rotate(-2deg) scale(1.05);box-shadow:6px 6px 0 var(--ink)}
+.sponsor__logo{width:100%;height:100%;object-fit:contain;padding:12px}
+
+@media (max-width:900px){
+  .sponsors__grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+}
+@media (max-width:760px){
+  .sponsors__grid{grid-template-columns:repeat(2,1fr);gap:clamp(12px,2vw,20px)}
+  .sponsor{min-height:120px}
+  .sponsor__logo{padding:8px}
+}
+
 /* contact */
 .contact{background:var(--red);color:var(--ink);border-top:0}
 .contact .h2{font-size:clamp(3rem,9vw,7rem)}
